@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="main-container">
+	<div class="grid-and-controls-container">
+		<div class="grid">
+			<!-- your grid cells here -->
+		</div>
+		<div class="controls">
+			<label for="iterations">Number of Iterations: </label>
+			<input type="text" id="iterations" name="iterations" value="10000">
+			<button onclick="runMonteCarlo()">Calculate</button>
+			<button onclick="setMarkingMode('E')">Empty</button>
+			<button onclick="setMarkingMode('H')">Hit</button>
+			<button onclick="setMarkingMode('M')">Miss</button>
+			<button onclick="setMarkingMode('S')">Sunk</button>
+			<div class="checkbox-container">
+				<input type="checkbox" id="diagonalSkewCheckbox" checked>
+				<label for="diagonalSkewCheckbox">Diagonal Skew</label>
+			</div>
+			<div id="status-text">Status: </div>
+		</div>
+	</div>
+	<div class="instructions">
+		Instructions:
+		<ol>
+			<li>Select a marking mode from the options on the right.</li>
+			<li>Click on a cell in the grid to mark it according to the selected mode.</li>
+			<li>Enter the number of</li>
+			<li>Click "Calculate" to run the solver.</li>
+			<li>The simulation will highlight the cell with the highest probability of containing a ship.</li>
+			<li>Adjust the marking mode and iterate as necessary to find all the ships.</li>
+		</ol>
+		Notes:
+		<ol>
+			<li>When marking a ship as sunk, mark all the squares containing the ship with the same index i.e. S1. The solver works out which ships of which lengths have been sunk with this information</li>
+			<li>The 'Diagonal Skew' option weights alternating diagonals with higher probabiilty - this helps to find the 2 length ship. Consider turning it off when the 2 length ship has been found.</li>
+			<li>You can change number of iterations - the simulation will be more accurate at the cost of computing time. For constrained boards, the simulation can take a long time, 10,000 iterations is a good middleground.</li>
+
+		</ol>
+	</div>
+
+
+</div>
+
+
+
+
+<script src="battleshipcalculate.js"></script>
+
+</body>
+</html>
